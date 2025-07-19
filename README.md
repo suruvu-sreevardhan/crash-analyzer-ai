@@ -1,17 +1,18 @@
 # 🕵️‍♂️ Crash Analyzer AI
 
 **AI-Powered Log Analyzer**  
-A developer tool that replays logs leading up to a crash and explains the root cause using LLMs like Gemini or GPT. Think of it as a mini Sherlock Holmes for your backend logs.
+A developer tool that replays logs leading up to a crash and explains the root cause using LLMs like Gemini or GPT.  
+Think of it as a mini Sherlock Holmes for your backend logs. 🔍
 
 ---
 
 ## 🚀 Features
 
-- Upload a production log file (text format)
-- Input a crash timestamp
-- AI parses logs near the crash time
-- Returns a **human-readable explanation**
-- Built using **React + FastAPI + Gemini/OpenRouter**
+- ✅ Upload a production log file (`.log`)
+- 🕒 Input a crash timestamp
+- 🤖 AI parses logs near the crash moment
+- 💬 Returns a **human-readable explanation**
+- 🌐 Built with **React + FastAPI + Gemini/OpenRouter**
 
 ---
 
@@ -22,22 +23,24 @@ A developer tool that replays logs leading up to a crash and explains the root c
 | Frontend    | React.js (Vite)                |
 | Backend     | FastAPI (Python)               |
 | AI Models   | Gemini / OpenRouter GPT-3.5    |
-| Styling     | TailwindCSS (optional)         |
-| File Storage| Local upload (future: S3)      |
+| Styling     | TailwindCSS *(optional)*       |
+| File Upload | Local filesystem *(uploads/)*  |
 
 ---
 
-## 🧠 AI Prompting
+## 🧠 AI Prompting Strategy
 
-The AI is prompted as:
+The LLM is prompted like this:
 
-> "You are an expert backend engineer. Analyze the logs and explain the root cause of the crash, any warnings or suspicious behavior, and suggest a fix."
+> *“You are an expert backend engineer. Analyze the logs and explain the likely root cause of the crash. Highlight any errors, warnings, and suspicious behavior. Suggest how to fix it.”*
+
+This approach gives detailed explanations that are dev-friendly.
 
 ---
 
 ## 🧪 Sample Logs
 
-Put log files like this in `.log` format:
+Log files should follow a format like:
 
 ```log
 2023-10-10T14:29:45 INFO Starting backup service...
